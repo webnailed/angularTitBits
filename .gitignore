@@ -12,6 +12,9 @@ Desktop.ini
 .directory
 *~
 
+# IDEs
+
+.idea/*
 
 # npm
 node_modules
