@@ -2,7 +2,7 @@ import templateComponent from 'app/components/template.component';
 
 'use strict';
 
-describe('templateComponent', () => {
+describe('templateComponent:', () => {
 
     let element,
         scope,

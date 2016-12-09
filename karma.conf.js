@@ -11,7 +11,6 @@ module.exports = function(config) {
             'karma-chai-sinon',
             'karma-webpack',
             'karma-phantomjs2-launcher',
-            'karma-babel-preprocessor',
             'karma-mocha-reporter'
         ],
         frameworks: ['mocha', 'chai-sinon'],
