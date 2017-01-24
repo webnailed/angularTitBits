@@ -1,4 +1,4 @@
-import zoomService from 'app/services/zoom.service';
+let zoomService = require('app/scripts/services/zoom.service');
 
 'use strict';
 

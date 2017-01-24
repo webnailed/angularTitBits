@@ -10,7 +10,7 @@ function ZoomImage($window, $document, zoom) {
     };
 
     function linkFn(scope, element) {
-        var targetImage,
+        let targetImage,
             currentScale,
             currentDeltaX,
             currentDeltaY,
@@ -47,7 +47,7 @@ function ZoomImage($window, $document, zoom) {
             return element.find('img');
         }
 
-        function handleImageCompiled(newVal) {
+        function handleImageCompiled(newVal = []) {
             if (!newVal.length) {
                 return;
             }
@@ -70,7 +70,7 @@ function ZoomImage($window, $document, zoom) {
         }
 
         function bindTouchEvents(image) {
-            var hammertime = new $window.Hammer(image[0]);
+            let hammertime = new $window.Hammer(image[0]);
 
             hammertime.get('pan').set({ direction: $window.Hammer.DIRECTION_ALL });
             hammertime.get('pinch').set({ enable: true });
@@ -103,7 +103,7 @@ function ZoomImage($window, $document, zoom) {
             }
 
             if (ev.type === 'doubletap') {
-                var eventArgs = {
+                let eventArgs = {
                     clientX: ev.center.x,
                     clientY: ev.center.y
                 };
@@ -121,24 +121,24 @@ function ZoomImage($window, $document, zoom) {
             scope.toggleImageVisibility(true);
         }
 
-        function toggleTransitions(onOff) {
+        function toggleTransitions(onOff = false) {
             if ($window.Modernizr.csstransitions) {
-                targetImage.css(transitionProperty, transformProperty + ' ' + (onOff ? '1' : '0') + 's ease-out');
+                targetImage.css(transitionProperty, `${transformProperty} ${(onOff ? '1' : '0')}'s ease-out`);
             }
         }
 
         function applyTransform(translation, scale) {
             if ($window.Modernizr.csstransforms3d) {
                 targetImage.css(transformOriginProperty,'0 0 0');
-                targetImage.css(transformProperty, 'translate3d(' + translation.x + 'px, ' + translation.y + 'px, 0) scale3d(' + scale + ', ' + scale + ', 1)');
+                targetImage.css(transformProperty, `translate3d(${translation.x}px, ${translation.y}px, 0) scale3d(${scale}, ${scale}, 1)`);
             } else {
                 targetImage.css(transformOriginProperty,'0 0');
-                targetImage.css(transformProperty, 'translate(' + translation.x + 'px, ' + translation.y + 'px) scale(' + scale + ', ' + scale + ')');
+                targetImage.css(transformProperty, `translate(${translation.x}px, ${translation.y}px) scale(${scale}, ${scale})`);
             }
         }
 
         function setImageDimensions() {
-            var imageEl = targetImage[0],
+            let imageEl = targetImage[0],
                 documentEl = $document[0].documentElement;
 
             if (documentEl.clientHeight < imageEl.height) {
@@ -195,7 +195,7 @@ function ZoomImage($window, $document, zoom) {
         }
 
         function handleMouseMove(e) {
-            var clientX = e.clientX,
+            let clientX = e.clientX,
                 clientY = e.clientY,
                 mouseDragPos;
 

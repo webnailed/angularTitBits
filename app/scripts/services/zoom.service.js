@@ -3,7 +3,7 @@
 Zoom.$inject = ['$window', '$document'];
 
 function Zoom($window, $document) {
-    var currentScale = 1,
+    let currentScale = 1,
         currentTranslation = {
             x: 0,
             y: 0
@@ -33,7 +33,7 @@ function Zoom($window, $document) {
     };
 
     function resetValues(imageEl) {
-        var documentEl = $document[0].documentElement,
+        let documentEl = $document[0].documentElement,
             imageComputedStyles = $window.getComputedStyle(imageEl[0]),
             leftPos = 0,
             topPos = 0,
@@ -56,7 +56,7 @@ function Zoom($window, $document) {
     }
 
     function zoomImage(imageEl, newScale, zoomPos) {
-        var imageRec = imageEl[0].getBoundingClientRect(),
+        let imageRec = imageEl[0].getBoundingClientRect(),
             currentWidth = imageRec.width,
             currentHeight = imageRec.height,
             previousScale = angular.copy(currentScale),
@@ -100,7 +100,7 @@ function Zoom($window, $document) {
     }
 
     function panImage(panDetails, imageEl) {
-        var imageRec = imageEl[0].getBoundingClientRect(),
+        let imageRec = imageEl[0].getBoundingClientRect(),
             documentEl = $document[0].documentElement,
             panWidth = panDetails.panWidth,
             panHeight = panDetails.panHeight;
@@ -155,7 +155,7 @@ function Zoom($window, $document) {
     }
 
     function getSupportedPropertyName(properties) {
-        for (var i = 0; i < properties.length; i++) {
+        for (let i = 0; i < properties.length; i++) {
             if (typeof $document[0].body.style[properties[i]] !== 'undefined') {
                 return properties[i];
             }

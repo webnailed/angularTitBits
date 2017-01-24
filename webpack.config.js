@@ -17,5 +17,17 @@ module.exports = {
     ],
     node: {
         fs: 'empty'
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js/,
+                exclude: [/test/, /node_modules/],
+                loader: 'babel',
+                query: {
+                    presets: ['es2015']
+                }
+            }
+        ]
     }
 };

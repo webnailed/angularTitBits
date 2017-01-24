@@ -14,7 +14,6 @@ function getTemplateUrl($attrs) {
 
 function TemplateController() {
     this.templateModel = this.templateModel || {};
-    return this;
 }
 
 

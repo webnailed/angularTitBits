@@ -1,4 +1,4 @@
-import templateComponent from 'app/components/template.component';
+let templateComponent =  require('app/scripts/components/template.component');
 
 'use strict';
 
@@ -36,6 +36,9 @@ describe('templateComponent:', () => {
         });
     });
 
+    afterEach(() => {
+        angular.element(document.body).empty();
+    });
 
     it('should render the component using the template provided', () => {
         element = `<template-component template-model="mockedTemplateModel" template="${mockedTemplatePath}" ></template-component>`;

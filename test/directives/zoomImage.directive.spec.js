@@ -1,5 +1,5 @@
-import zoomService from 'app/services/zoom.service'
-import zoomImageDirective from 'app/directives/zoomImage.directive';
+let zoomService = require('app/scripts/services/zoom.service'),
+    zoomImageDirective = require('app/scripts/directives/zoomImage.directive');
 
 'use strict';
 

@@ -38,10 +38,10 @@ module.exports = function(config) {
             module: {
                 loaders: [
                     {
-                        test: /\.js/,
-                        exclude: [/app/, /node_modules/],
-                        loader: 'babel',
-                        query: {
+                            test: /\.js/,
+                            exclude: [/node_modules/],
+                            loader: 'babel',
+                            query: {
                             presets: ['es2015']
                         }
                     }
